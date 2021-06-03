@@ -1,0 +1,256 @@
+{% extends 'base.html' %}
+
+
+
+{% block content %}
+{% load static %}
+<style type="text/css">
+  #backg{
+    background-image: url({% static 'img/farm1.jpg' %}); 
+  }
+
+
+
+
+  #sec{
+    background-image: url({% static 'img/maize.jpg' %});
+    background-position: center;
+  }
+
+
+#three{
+    background-image: url({% static 'img/animals.jpg' %});
+    background-position: center;
+  }
+
+#four{
+    background-image: url({% static 'img/rev.jpg' %});
+    background-position: center;
+  }
+
+
+
+
+
+  .pad{
+    padding-top: 55px ;
+    font-size: xxx-large !important;
+ 
+
+  }
+
+    .inner{
+      background-color: rgba(0,0,0,0.3);
+    }
+
+    .small-box h3, .small-box p{
+      color: #fff;
+    }
+
+  a:hover{
+    cursor: pointer;
+  }
+</style>
+
+
+
+<div class="wrapper">
+
+
+
+  <!-- Content Wrapper. Contains page content -->
+  <div class="content-wrapper">
+    <!-- Content Header (Page header) -->
+    <div class="content-header">
+      <div class="container-fluid">
+        <div class="row mb-2">
+          <div class="col-sm-6">
+            <h1 class="m-0 text-dark">Dashboard</h1>
+          </div><!-- /.col -->
+          <div class="col-sm-6">
+            <ol class="breadcrumb float-sm-right">
+              <li class="breadcrumb-item"><a href="#">Home</a></li>
+              <li class="breadcrumb-item active">Dashboard </li>
+            </ol>
+          </div><!-- /.col -->
+        </div><!-- /.row -->
+      </div><!-- /.container-fluid -->
+    </div>
+    <!-- /.content-header -->
+
+    <!-- Main content -->
+    <section class="content">
+      <div class="container-fluid">
+        <!-- Small boxes (Stat box) -->
+        <div class="row">
+          <div class="col-lg-3 col-6">
+            <a href = '/options/'>
+            <!-- small box -->
+            <div id ="backg" class="small-box bg-info">
+              <div class="inner">
+                <h3 style="">{{ num_farms }}</h3>
+
+                <p class="pad" style="padding-top: 3px;">My Farms</p>
+              </div>
+             
+
+              <!--
+              <a href="#" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
+            -->
+
+            </div>
+          </a>
+          </div>
+          <!-- ./col -->
+          <div class="col-lg-3 col-6" id="choosefarm_modal">
+            <!-- small box -->
+            
+            <a id="sec" class="small-box bg-success" id="choosefarmbtn" data-toggle="modal" data-target="#myModal">
+              <div class="inner">
+                
+               
+               
+                
+                <p class="crp pad" style="">Crops</p>
+              
+
+              </div>
+              <div class="icon">
+                
+                </div>
+             
+              
+            </a>
+      
+
+          </div>
+          <!-- ./col -->
+          <div class="col-lg-3 col-6">
+            <!-- small box -->
+          <a class="small-box bg-success" id="choosefarm_animalbtn" data-toggle="modal" data-target="#choosefarm_animal">
+            <div id="three" class="small-box bg-warning">
+              <div class="inner">
+                
+
+                <p class="pad" style="">Animals</p>
+              </div>
+              <div class="icon">
+                <i class="ion ion-person-add"></i>
+              </div>
+              
+            </div>
+          </a>
+          </div>
+          <!-- ./col -->
+          <div class="col-lg-3 col-6">
+            <!-- small box -->
+            <div id="four" class="small-box bg-danger">
+              <div class="inner">
+               
+
+                <p class="pad" style="">Revenue</p>
+              </div>
+              <div class="icon">
+                <i class="ion ion-pie-graph"></i>
+              </div>
+             
+            </div>
+          </div>
+          <!-- ./col -->
+        </div>
+        <!-- /.row -->
+        <!-- Main row -->
+        <div class="row">
+          <!-- Left col -->
+          <section class="col-lg-7 connectedSortable">
+
+            
+           
+
+           
+
+          </section>
+          <!-- /.Left col -->
+      
+        </div>
+        <!-- /.row (main row) -->
+      </div><!-- /.container-fluid -->
+    </section>
+    <!-- /.content -->
+  </div>
+  <!-- /.content-wrapper -->
+  <footer class="main-footer">
+    <strong>Copyright &copy; 2020 <a href="#">Hasianda Technologies</a>.</strong>
+    All rights reserved.
+    <div class="float-right d-none d-sm-inline-block">
+      <b>Version</b> 3.0.5
+    </div>
+  </footer>
+
+  <!-- Control Sidebar -->
+  <aside class="control-sidebar control-sidebar-dark">
+    <!-- Control sidebar content goes here -->
+  </aside>
+  <!-- /.control-sidebar -->
+</div>
+<!-- ./wrapper -->
+
+
+   <!-- Modal crop -->
+
+  <div class="modal fade" id="myModal" role="dialog">
+    <div class="modal-dialog">
+    
+      <!-- Modal content-->
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal">&times;</button>
+          <h4 class="modal-title text-center">Choose Farm</h4>
+        </div>
+        <div class="modal-body">
+
+              {% for farm in choose_farm %}
+              
+              <a href="/cropoptions/{{farm}}" >{{farm}}</a> <br>
+           
+              {% endfor %}      
+          
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+        </div>
+      </div>
+      
+    </div>
+  </div>
+
+
+ <!-- Modal animal -->
+
+  <div class="modal fade" id="choosefarm_animal" role="dialog">
+    <div class="modal-dialog">
+    
+      <!-- Modal content-->
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal">&times;</button>
+          <h4 class="modal-title text-center">Choose Farm....</h4>
+        </div>
+        <div class="modal-body">
+
+              {% for farm in choose_farm %}
+              
+              <a href="/animaloptions/{{farm}}" >{{farm}}</a> <br>
+           
+              {% endfor %}      
+          
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+        </div>
+      </div>
+      
+    </div>
+  </div>
+
+{% endblock %}

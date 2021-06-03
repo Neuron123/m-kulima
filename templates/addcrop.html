@@ -1,0 +1,89 @@
+{% extends 'base.html'%}
+{% block content%}
+
+<div class="content-wrapper">
+ 
+    <!-- Content Header (Page header) -->
+    <section class="content-header">
+      <div class="container-fluid">
+        <div class="row mb-2">
+          <div class="col-sm-6">
+            <h1>Add Crop</h1>
+          </div>
+          <div class="col-sm-6">
+            <ol class="breadcrumb float-sm-right">
+              <li class="breadcrumb-item"><a href="/dashboard/">Home</a></li>
+              <li class="breadcrumb-item active">Add crop</li>
+            </ol>
+          </div>
+        </div>
+      </div><!-- /.container-fluid -->
+    </section>
+
+    <!-- Main content -->
+    <section class="content">
+      <div class="container-fluid">
+        <div class="row">
+          <!-- left column -->
+          <div class="col-md-6">
+            <!-- general form elements -->
+            <div class="card card-success">
+              <div class="card-header">
+                <h3 class="card-title">Crop</h3>
+              </div>
+              <!-- /.card-header -->
+              <!-- form start -->
+              <form role="form" method="POST" action="/dashboard/insert/">
+                {% csrf_token %}
+                <div class="card-body">
+                    <div class="form-group">
+                    <label for="cropname">Crop_Name</label>
+                    <input type="text" name="cropname" class="form-control" id="cropname" placeholder="Enter Name" required>
+                  </div>
+                   <div class="form-group">
+                    <label for="variety">Crop_Variety</label>
+                    <input type="text" name="variety" class="form-control" id="variety" placeholder="Enter Variety" required>
+                  </div>
+                  <div class="form-group">
+                    <label for="dop">Date_Of_Planting</label>
+                    <input type="date" name="dop" class="form-control" id="dop" placeholder="Date Of Planting">
+                  </div>
+                  <div class="form-group">
+                    <label for="edoh">Expected_Date_Of_Havest</label>
+                    <input type="date" name="edoh" class="form-control" id="edoh" placeholder="Expected Date Of Havest" required>
+                  </div>
+                   <div class="form-group">
+                    <label for="qos">Quantity_Of_Seeds(kgs)</label>
+                    <input type="text" name="qos" class="form-control" id="qos" placeholder="10" required>
+                  </div>
+                  <div class="form-group">
+                    <label for="price">Cost_Of_Seeds</label>
+                    <input type="text" name="price" class="form-control" id="price" placeholder="Ksh." required>
+                  </div>
+                   <div class="form-group">
+                    <label for="description">Description</label>
+                    <input type="text" name="description" class="form-control" id="description" placeholder="Optional">
+                  </div>
+                 
+                  <div class="form-group">
+                    <label for="farmname">Farm name</label>
+                    <input type="text" name="farm_id" class="form-control" id="farmid" value="{{choose_farm}}">
+                  </div>
+                
+
+                  <div class="form-group">
+                    <input type="hidden" class="form-control" id="email" name="useremail" value="{{user.email}}">
+                    
+                  </div>
+                </div>
+                <!-- /.card-body -->
+
+                <div class="card-footer">
+                  <button type="submit" name="submit" class="btn btn-success">Add</button>
+
+                </div>
+              </form>
+            </div>
+            <!-- /.card -->
+
+{% endblock%}

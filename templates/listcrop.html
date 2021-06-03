@@ -1,0 +1,88 @@
+{% extends 'base.html' %}
+{% block content %}
+
+
+<div class="content-wrapper">
+
+<section class="content">
+	<div class="container-fluid">
+
+		<div class="row">
+			
+          <div class="col-12">
+            <div class="card">
+              <div class="card-header">
+                <h3 class="card-title">List Of Crops</h3>
+
+                <div class="card-tools">
+                  <div class="input-group input-group-sm" style="width: 150px;">
+                    <input type="text" name="table_search" class="form-control float-right" placeholder="Search">
+
+                    <div class="input-group-append">
+                      <button type="submit" class="btn btn-default"><i class="fas fa-search"></i></button>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <!-- /.card-header -->
+              
+              <div class="card-body table-responsive p-0" style="height: 300px;">
+                <table class="table table-hover table-head-fixed text-nowrap">
+                  <thead>
+                    <tr>
+                      <th>NO.</th>
+                      <th>Crop_Name</th>
+                      <th>Crop_Variety</th>
+                      <th>Cost_Of_Seeds</th>
+
+                      <th>Quantity_Of_Seeds</th>
+                      <th>Date_Of_Planting</th>
+                      
+                     
+                    </tr>
+                  </thead>
+
+                  <tbody>
+                  	{{choose_crops}}
+
+                    {{num_crops}}
+                  	
+                  	{% for crop in Crop_Name %}
+                    <tr>
+                    	
+                      <td> {{forloop.counter}} </td>
+
+                      	
+                      
+                      <td>{{crop.Crop_Name}}</td>
+                      <td>{{crop.Crop_Variety}}</td>
+                      <td>{{crop.Cost_Of_Seeds}}</td>
+                      <td>{{crop.Quantity_Of_Seeds}}</td>
+                      <td>{{crop.Date_Of_Planting}}</td>
+                      <!--<td><span class="tag tag-success">Approved</span></td>
+                      <td>{{has.Description}}</td>-->
+                  
+                    </tr>
+                    {% endfor %}
+                    
+    
+                  </tbody>
+                </table>
+              </div>
+              <!-- /.card-body -->
+
+            </div>
+            <a href= "Javascript:history.go (-1);" class="btn btn-primary" > Back </a>
+           
+            <a href="/dashboard/" class="btn btn-primary">Go To Home</a>
+            <!-- /.card -->
+          </div>
+          
+        </div>
+        
+    </div>
+</section>
+</div>
+
+
+{% endblock%}

@@ -1,0 +1,79 @@
+{% extends 'base.html' %}
+{% block content %}
+
+
+<div class="content-wrapper">
+
+<section class="content">
+	<div class="container-fluid">
+
+		<div class="row">
+			
+          <div class="col-12">
+            <div class="card">
+              <div class="card-header">
+                <h3 class="card-title">List Of Farms</h3>
+
+                <div class="card-tools">
+                  <div class="input-group input-group-sm" style="width: 150px;">
+                    <input type="text" name="table_search" class="form-control float-right" placeholder="Search">
+
+                    <div class="input-group-append">
+                      <button type="submit" class="btn btn-default"><i class="fas fa-search"></i></button>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <!-- /.card-header -->
+              
+              <div class="card-body table-responsive p-0" style="height: 300px;">
+                <table class="table table-hover table-head-fixed text-nowrap">
+                  <thead>
+                    <tr>
+                      <th>NO.</th>
+                      <th>Farm_Name</th>
+                      <th>Date</th>
+                      <th>Size</th>
+                      <th>County</th>
+                      <th>Address</th>
+                    </tr>
+                  </thead>
+
+                  <tbody>
+                  	{{useremaildetails}}
+                  	
+                  	{% for has in user.farmlist.all %}
+                    <tr>
+                    	
+                      <td> {{forloop.counter}} </td>
+
+                      	
+                      
+                      <td>{{has.Farm_Name}}</td>
+                      <td>{{has.Date}}</td>
+                      <td>{{has.Size}}</td>
+                      <td>{{has.County}}</td>
+                      <td>{{has.Address}}</td>
+                      <td><span class="tag tag-success">Approved</span></td>
+                      <td>{{has.Description}}</td>
+                  
+                    </tr>
+                    {% endfor %}
+                    
+           
+                  </tbody>
+                </table>
+              </div>
+              <!-- /.card-body -->
+            </div>
+            <!-- /.card -->
+          </div>
+          
+        </div>
+        
+    </div>
+</section>
+</div>
+
+
+{% endblock%}

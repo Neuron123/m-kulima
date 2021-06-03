@@ -1,0 +1,54 @@
+{% extends 'base.html' %}
+{% block content %}
+{% load static %}
+<style type="text/css">
+  #bx{
+    /*background-image: url({% static 'img/farm4.png' %});*/
+    color: #0e9d4c;
+font-size: xx-large;
+    
+
+  }
+</style>
+
+  
+
+<div class="content-wrapper">
+<div class="container">
+<div class="card-body" >
+          <div class="row">
+
+<div class="col-12 col-sm-4">
+	 <a href = '/addfarm/'>
+                  <div id="bx" class="info-box bg-light">
+                    <div class="info-box-content">
+                      <span  class="info-box-text text-center text-muted">Add Farm</span>
+                      
+                    </div>
+                  </div>
+              </a>
+                </div>
+
+            </div>
+        </div>
+
+
+        <div class="card-body">
+          <div class="row">
+
+<div class="col-12 col-sm-4">
+	<a href = '/listfarm/'>
+                  <div id="bx" class="info-box bg-light">
+                    <div class="info-box-content">
+                      <span class="info-box-text text-center text-muted">List Farms</span>
+                     
+                    </div>
+                  </div>
+              </a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+{% endblock %}

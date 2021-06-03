@@ -1,0 +1,21 @@
+from django.shortcuts import render, redirect
+from django.contrib.auth.models import logout, login, authenticate,User
+
+
+# Create your views here.
+def homepage(request):
+	return render(request, 'home.html')
+
+
+def register(request):
+	if request.method == 'POST':
+	   	username = request.POST['uname']
+	  	email = request.POST['email']
+		passw = request.POST['pass']
+	        cpassw = request.POST['pass2']
+	else:
+	   return render(request, 'register.html')
+
+
+#def login(request):
+#	return render(request, 'login.html')

@@ -1,0 +1,227 @@
+{% extends 'base.html'%}
+{% block content%}
+
+<style type="text/css">
+.navbuttons{
+	position: relative;
+}	
+#backBtn{
+	display: inline-block;
+}
+</style>
+
+<div class="content-wrapper">
+ 
+    <!-- Content Header (Page header) -->
+    <section class="content-header">
+      <div class="container-fluid">
+        <div class="row mb-2">
+          <div class="col-sm-6">
+            <h1 class="text-center">Add Animal</h1>
+          </div>
+          <div class="col-sm-6">
+            <ol class="breadcrumb float-sm-right">
+              <li class="breadcrumb-item"><a href="/dashboard/">Home</a></li>
+              <li class="breadcrumb-item active">Add Animal</li>
+            </ol>
+          </div>
+        </div>
+      </div><!-- /.container-fluid -->
+    </section>
+
+    <!-- Main content -->
+    <section class="content">
+      <div class="container-fluid">
+        <div class="row">
+
+        
+          <!-- left column -->
+          <div class="col-md-8">
+            <!-- general form elements -->
+            <div class="card card-success">
+              <div class="card-header">
+                <h3 class="card-title">Animal</h3>
+              </div>
+              <!-- /.card-header -->
+              <!-- form start -->
+              <form role="form" method="POST" action="/dashboard">
+                {% csrf_token %}
+
+                <div class="card-body">
+
+                	<fieldset id="firstform" name="firstform" class="tab">
+                    <div class="form-group">
+                    <label for="category">Category</label>
+                    <select class="form-control" name="category" id="category">
+                    	<option value="poultry">Poultry Farming</option>
+                    	<option value="livestock">Livestock Farming</option>
+                    	<option value="fish">Fish Farming</option>
+                    	<option value="other">Other</option>
+                    </select>
+                  </div>
+
+                   <div class="form-group">
+                    <label for="category">Type of animal</label>
+                    <select class="form-control" name="typeanimal" id="typeanimal">
+                    	<option value="cow">Cow</option>
+                    	<option value="goat">Goat</option>
+                    	<option value="sheep">Sheep</option>
+                    	<option value="other">Other</option>
+                    </select>
+                  </div>
+
+
+                   <div class="form-group">
+                    <label for="animaltype">Animal_Tag/name</label>
+                    <input type="text" name="animaltype" class="form-control" id="animaltype" placeholder="id/tag" required>
+                  </div>
+
+
+                  <div class="form-group">
+                    <label for="breed">Breed</label>
+                    <input type="text" name="breed" class="form-control" id="breed" placeholder="eg freshian" required>
+                  </div>
+
+                   <div class="form-group">
+                    <label for="calved">Was the animal Calved or purchased</label>
+
+                            <div class="form-check">
+
+  							<label class="form-check-label">
+    							<input type="radio" class="form-check-input" name="calved" id="calved" value="calved" checked="">Calved
+ 							 </label>
+
+
+							</div>
+
+							 <div class="form-check">
+  							<label class="form-check-label">
+    							<input type="radio" class="form-check-input" name="calved" id="purchased" value="purchased">Purchased
+ 							 </label>
+							</div>
+
+                  </div>
+         
+         		  
+            </fieldset>
+
+
+            <div id="secondform" class="tab">
+            	
+                  <div class="form-group">
+                    <label for="dop">Date_Of_Purchase</label>
+                    <input type="text" name="dop" class="form-control" id="dop" placeholder="Date Of Purchase">
+                  </div>
+
+                  
+                  <div class="form-group">
+                    <label for="buyingprice">Buying_Price</label>
+                    <input type="text" name="buyingprice" class="form-control" id="buyingprice" placeholder="Ksh." required>
+                  </div>
+                   <div class="form-group">
+                    <label for="description">Description</label>
+                    <input type="text" name="description" class="form-control" id="description" placeholder="Optional">
+                  </div>
+                  <div class="form-group">
+                    <label for="number">Number</label>
+                    <input type="text" name="number" class="form-control" id="number" placeholder="optional">
+                  </div>
+                   <div class="form-group">
+                    <label for="currency">Currency</label>
+                    <input type="text" name="currency" class="form-control" id="currency" placeholder="Ksh.">
+                  </div>
+
+     
+
+            </div>
+
+            <div id="thirdform" class="tab">
+
+                   <div class="form-group">
+                    <label for="profilepic">Profilepic</label>
+                    <input type="text" name="profilepic" class="form-control" id="profilepic" placeholder="Optional">
+                  </div>
+
+                  
+                 
+                    <div class="form-group">
+                    <label for="farmname">Farm name</label>
+                    <input type="hidden" name="farm_id" class="form-control" id="farmid" value="{{choose_farm}}">
+                  </div>
+
+              
+         		 
+            </div>
+                 
+                
+
+                  <div class="form-group">
+                    <input type="hidden" class="form-control" id="email" name="useremail" value="{{user.email}}">
+                    
+                  </div>
+                </div>
+                <!-- /.card-body -->
+
+                <div class="card-footer">
+                	<div class="navbuttons">
+                	
+                  <button type="button" name="back" class="btn btn-success" id="backBtn">Back</button>
+                  <button type="button" name="next" class="btn btn-success" id="nextBtn" style="float: right;">Next</button>
+         		  <input type="submit" name="submit" value="Save">
+         		
+              </div>
+                </div>
+              </form>
+            </div>
+            <!-- /.card -->
+
+        </div>
+
+<script type="text/javascript">
+
+var currentTab = 0; // Current tab is set to be the first tab (0)
+setFormStorage(currentTab); // Display the current tab
+var valid = true;
+
+	function setIncrement(){
+
+	}
+
+	function setFormStorage(n){
+		// Store
+		if(validate()){
+
+			var stepForm += 1;
+			currentTab += 1;
+			sessionStorage.setItem("formstep", stepForm);
+		}else{
+
+		}
+		
+	}
+
+
+	function validate(){
+		var x = document.getElementsByClassName("tab");
+		var y = x[currentTab].getElementsByTagName("input");
+
+		 // A loop that checks every input field in the current tab:
+			  for (i = 0; i < y.length; i++) {
+			    // If a field is empty...
+			    if (y[i].value == "") {
+			      // add an "invalid" class to the field:
+			      y[i].className += " invalid";
+			      // and set the current valid status to false:
+			      valid = false;
+			    }
+			  }
+
+			  if (valid) {
+			  	return true;
+			  }
+
+	}
+</script>
+
+
+{% endblock%}

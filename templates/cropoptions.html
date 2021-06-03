@@ -1,0 +1,196 @@
+{% extends 'base.html' %}
+{% block content %}
+
+
+<!-- Font Awesome -->
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.2/css/all.css">
+<!-- Google Fonts -->
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap">
+<!-- Bootstrap core CSS -->
+<link href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.5.0/css/bootstrap.min.css" rel="stylesheet">
+<!-- Material Design Bootstrap -->
+<link href="https://cdnjs.cloudflare.com/ajax/libs/mdbootstrap/4.19.1/css/mdb.min.css" rel="stylesheet">
+
+
+<div class="content-wrapper">
+<div class="container">
+
+<h3 class="mt-4 mb-4">{{choose_farm}}</h3>
+<div class="row">
+  <div class="col-md-4">
+            <!-- Widget: user widget style 2 -->
+            <div class="card card-widget widget-user-2">
+              <!-- Add the bg color to the header using any of the bg-* classes -->
+            
+              <div class="card-footer p-0">
+                
+              </div>
+            </div>
+            <!-- /.widget-user -->
+          </div>
+        </div>
+
+
+
+
+<div class="row">
+  <div class="col" >
+
+    <div class="row">
+      <div class="col">
+
+        <!-- Card -->
+<div class="card">
+
+  <!-- Card image -->
+  <!--
+  <img class="card-img-top" src="https://horizon-media.s3-eu-west-1.amazonaws.com/s3fs-public/field/image/sorghum1.jpg" alt="Card image cap">
+-->
+
+  <!-- Card content -->
+  <div class="card-body">
+
+    <!-- Title -->
+    <h4 class="card-title"><a>Crop</a></h4>
+    <!-- Text -->
+    <p class="card-text">Add Crop to {{choose_farm}}</p>
+    <!-- Button -->
+    <a href="/dashboard/addcrop/{{choose_farm}}" class="btn btn-primary">Add Crop</a>
+
+  </div>
+
+</div>
+<!-- Card -->
+        
+
+
+
+      </div>
+      
+    </div>
+    <div class="row">
+      <div class="col">
+        
+
+<div class="card">
+
+  <!-- Card image -->
+  <!--
+  <img class="card-img-top" src="https://horizon-media.s3-eu-west-1.amazonaws.com/s3fs-public/field/image/sorghum1.jpg" alt="Card image cap">
+-->
+
+  <!-- Card content -->
+  <div class="card-body">
+
+    <!-- Title -->
+    <h4 class="card-title"><a>Details</a></h4>
+    <!-- Text -->
+    <p class="card-text">View crops in {{choose_farm}}</p>
+    <!-- Button -->
+    <a href="/listcrop/{{choose_crop}}" class="btn btn-primary">Crop Details</a>
+
+  </div>
+
+</div>
+
+
+      </div>
+      
+    </div>
+
+
+  </div>
+
+  <div class="col" >
+
+<!--
+    <div class="card">
+              <div class="card-header">
+                <h3 class="card-title">Bordered Table</h3>
+              </div>
+              
+              <div class="card-body">
+                <table class="table table-bordered">
+                  <thead>                  
+                    <tr>
+                      <th style="width: 10px">#</th>
+                      <th>Task</th>
+                      <th>Progress</th>
+                      <th style="width: 40px">Label</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <td>1.</td>
+                      <td>Update software</td>
+                      <td>
+                        <div class="progress progress-xs">
+                          <div class="progress-bar progress-bar-danger" style="width: 55%"></div>
+                        </div>
+                      </td>
+                      <td><span class="badge bg-danger">55%</span></td>
+                    </tr>
+                    <tr>
+                      <td>2.</td>
+                      <td>Clean database</td>
+                      <td>
+                        <div class="progress progress-xs">
+                          <div class="progress-bar bg-warning" style="width: 70%"></div>
+                        </div>
+                      </td>
+                      <td><span class="badge bg-warning">70%</span></td>
+                    </tr>
+                    <tr>
+                      <td>3.</td>
+                      <td>Cron job running</td>
+                      <td>
+                        <div class="progress progress-xs progress-striped active">
+                          <div class="progress-bar bg-primary" style="width: 30%"></div>
+                        </div>
+                      </td>
+                      <td><span class="badge bg-primary">30%</span></td>
+                    </tr>
+                    <tr>
+                      <td>4.</td>
+                      <td>Fix and squish bugs</td>
+                      <td>
+                        <div class="progress progress-xs progress-striped active">
+                          <div class="progress-bar bg-success" style="width: 90%"></div>
+                        </div>
+                      </td>
+                      <td><span class="badge bg-success">90%</span></td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+             
+              <div class="card-footer clearfix">
+                <ul class="pagination pagination-sm m-0 float-right">
+                  <li class="page-item"><a class="page-link" href="#">&laquo;</a></li>
+                  <li class="page-item"><a class="page-link" href="#">1</a></li>
+                  <li class="page-item"><a class="page-link" href="#">2</a></li>
+                  <li class="page-item"><a class="page-link" href="#">3</a></li>
+                  <li class="page-item"><a class="page-link" href="#">&raquo;</a></li>
+                </ul>
+              </div>
+            </div>
+          -->
+  </div>
+</div>
+
+
+
+      </div>
+    </div>
+
+
+<!-- JQuery -->
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<!-- Bootstrap tooltips -->
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.4/umd/popper.min.js"></script>
+<!-- Bootstrap core JavaScript -->
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.5.0/js/bootstrap.min.js"></script>
+<!-- MDB core JavaScript -->
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mdbootstrap/4.19.1/js/mdb.min.js"></script>
+
+{% endblock %}
